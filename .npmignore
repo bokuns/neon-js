@@ -1,5 +1,4 @@
 node_modules/
-dist/
 
 # Ignore files with sensitive environment variables
 .env
