@@ -12,8 +12,14 @@ const samplePrivateKey = {
   wif: 'L3tgppXLgdaeqSGSFw1Go3skBiy8vQAM7YMXvTHsKQtE16PBncSU'
 }
 
+const samplePublicKey = {
+  compressed: '035a928f201639204e06b4368b1a93365462a8ebbff0b8818151b74faab3a2b61a',
+  uncompressed: '045a928f201639204e06b4368b1a93365462a8ebbff0b8818151b74faab3a2b61a35dfabcb79ac492a2a88588d2f2e73f045cd8af58059282e09d693dc340e113f'
+}
+
 const config = {
-  SAMPLE_PRIVATE_KEY: samplePrivateKey
+  SAMPLE_PRIVATE_KEY: samplePrivateKey,
+  SAMPLE_PUBLIC_KEY: samplePublicKey
 }
 
 export default config;

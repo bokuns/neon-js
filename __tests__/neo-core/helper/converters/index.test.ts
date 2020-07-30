@@ -9,8 +9,8 @@ const { SAMPLE_PRIVATE_KEY } = config;
 describe('Test Suite for Converters', () => {
   const { numArray, byteArray, hexstring, wif } = SAMPLE_PRIVATE_KEY;
 
-  const hex2numCases = [ byteArray, numArray];
-  test.each(hex2numCases as any, (byte, num) => {
+  const hex2numCases: unknown = [ byteArray, numArray];
+  test.each(hex2numCases as TemplateStringsArray, (byte, num) => {
     const result = hex2num(byte);
     expect(result).toEqual(num);
   });
