@@ -5,7 +5,9 @@
   "main": "index.ts",
   "scripts": {
     "build": "node_modules/.bin/tsc",
+    "coverage": "jest --coverage",
     "lint": "./node_modules/.bin/eslint . --ext .ts",
+    "start": "npm run build && node dist/index.js",
     "test": "jest"
   },
   "repository": {
@@ -23,7 +25,9 @@
   },
   "homepage": "https://github.com/CityOfZion/neon-js#readme",
   "devDependencies": {
+    "@types/bs58": "^4.0.1",
     "@types/jest": "^26.0.7",
+    "@types/lodash": "^4.14.158",
     "@typescript-eslint/eslint-plugin": "^3.7.1",
     "@typescript-eslint/parser": "^3.7.1",
     "eslint": "^7.5.0",
@@ -38,6 +42,17 @@
     }
   },
   "jest": {
-    "preset": "ts-jest"
+    "preset": "ts-jest",
+    "modulePathIgnorePatterns": [
+      "__tests__/config"
+    ]
+  },
+  "dependencies": {
+    "bs58check": "^2.1.2",
+    "buffer": "^5.6.0",
+    "crypto-js": "^4.0.0",
+    "lodash": "^4.17.19",
+    "path": "^0.12.7",
+    "secure-random": "^1.1.2"
   }
 }
