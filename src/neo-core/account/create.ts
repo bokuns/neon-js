@@ -1,4 +1,4 @@
-import { createPrivateKey } from '../helper/crypto/key';
+import { createPrivateKey } from '../key';
 
 import { Account } from '../types/account';
 

@@ -1,9 +1,10 @@
 import _ from 'lodash';
-import config from '../../../config';
+import config from '../config';
 const { SAMPLE_PRIVATE_KEY, SAMPLE_PUBLIC_KEY } = config;
-import { getFullPrivateKey, generatePublicKey } from '../../../../src/neo-core/helper/crypto/key';
+import { getPublicKeyFromPrivateKey, getFullPrivateKey,
+  getFullPublicKey } from '../../src/neo-core/key';
 
-describe('getFullPrivateKey', () => {
+describe('Test Suite for Pub/Pvt Key Operations: ', () => {
   const privateKey = SAMPLE_PRIVATE_KEY;
   const publicKey = SAMPLE_PUBLIC_KEY;
   const fullPrivateKeyPick = ['hexstring', 'wif'];
@@ -20,13 +21,25 @@ describe('getFullPrivateKey', () => {
 
   test('Generate PublicKey from HexString: ', () => {
     const input = _.get(privateKey, 'hexstring');
-    const result = generatePublicKey(input);
+    const result = getPublicKeyFromPrivateKey(input);
     expect(result).toEqual(publicKey);
   });
 
   test('Generate PublicKey from WIF: ', () => {
     const input = _.get(privateKey, 'wif');
-    const result = generatePublicKey(input);
+    const result = getPublicKeyFromPrivateKey(input);
+    expect(result).toEqual(publicKey);
+  });
+
+  test('Get Full PublickKey from Uncompressed PubKey: ', () => {
+    const input = _.get(publicKey, 'uncompressed');
+    const result = getFullPublicKey(input);
+    expect(result).toEqual(publicKey);
+  });
+
+  test('Get Full PublickKey from Compressed PubKey: ', () => {
+    const input = _.get(publicKey, 'compressed');
+    const result = getFullPublicKey(input);
     expect(result).toEqual(publicKey);
   });
 });

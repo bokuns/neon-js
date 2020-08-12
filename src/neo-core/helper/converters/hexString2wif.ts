@@ -10,8 +10,8 @@ const hexString2wif = (hexString: string): string => {
   }
   const fullHex = `${WIF_PREFIX}${hexString}${WIF_SUFFIX}`;
 
-  const bytes = Buffer.from(fullHex, 'hex');
-  return bs58check.encode(bytes);
+  const buffer = Buffer.from(fullHex, 'hex');
+  return bs58check.encode(buffer);
 };
 
 export default hexString2wif;
